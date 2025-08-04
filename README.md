@@ -2,10 +2,10 @@
 
 A dynamic, interactive restaurant ordering application built with vanilla JavaScript, HTML, and CSS. This project demonstrates fundamental web development concepts including DOM manipulation, event handling, state management, and responsive design.
 
-
 ## ✨ Features
 
 ### Core Functionality
+
 - **Dynamic Menu Rendering** - Menu items loaded from external data source
 - **Interactive Shopping Cart** - Add/remove items with real-time updates
 - **Order Management** - Complete order flow with form validation
@@ -13,6 +13,7 @@ A dynamic, interactive restaurant ordering application built with vanilla JavaSc
 - **Success Feedback** - Confirmation messages with auto-hide functionality
 
 ### Technical Highlights
+
 - **State Management** - Cart data maintained in memory with UI synchronization
 - **Event Delegation** - Efficient event handling for dynamic content
 - **Form Validation** - Input sanitization and user feedback
@@ -22,54 +23,89 @@ A dynamic, interactive restaurant ordering application built with vanilla JavaSc
 ## 🛠️ Technologies Used
 
 - **JavaScript (ES6+)** - Modern JavaScript features including modules, arrow functions, and array methods
-- **HTML5** - Semantic markup and accessibility considerations  
+- **HTML5** - Semantic markup and accessibility considerations
 - **CSS3** - Custom styling with flexbox layout and responsive design
 - **Vite** - Fast build tool and development server
 - **Google Fonts** - Typography enhancement (Smythe font family)
 
 ## 📋 JavaScript Concepts Demonstrated
 
-### DOM Manipulation
+### DOM Manipulation & Dynamic Content
+
 ```javascript
-// Dynamic element creation and insertion
-const itemDiv = document.createElement('div')
-itemDiv.innerHTML = `<div class="card">...</div>`
-document.querySelector('main').prepend(itemDiv)
+// Creating and inserting menu items dynamically
+menuArray.forEach((item) => {
+  let itemDiv = document.createElement("div");
+  itemDiv.innerHTML = `<div class="card">
+          <img src="${item.imgUrl}" />
+          <div class="card-text">
+            <h2>${item.name}</h2>
+            <p class="description">${item.ingredients}</p>
+            <p class="price">${item.price}</p>
+          </div>
+          <button class='add-item'>+</button>
+        </div>`;
+
+  document.querySelector("main").prepend(itemDiv);
+});
 ```
 
-### Event Handling & Delegation
+### Event Handling & User Interactions
+
 ```javascript
-// Efficient event delegation for dynamic buttons
-document.querySelector('main').addEventListener('click', (e) => {
-    if (e.target.classList.contains('add-item')) {
-        const itemIndex = parseInt(e.target.dataset.itemIndex)
-        addToCart(menuArray[itemIndex])
-    }
-})
+// Adding items to cart with nested event listeners
+const addButtons = itemDiv.querySelector(".add-item");
+
+addButtons.addEventListener("click", () => {
+  orderContainer.style.display = "block";
+  const orderItem = document.createElement("div");
+  orderItem.innerHTML += `<div class="order-text">
+      <h3 class="item">
+        ${item.name}
+        <aside class='remove-btn'>remove</aside>
+      </h3>
+      <p class="price">${item.price}</p>
+    </div>`;
+
+  document.querySelector(".line-item-elements").appendChild(orderItem);
+});
 ```
 
-### Array Methods & State Management
+### Modal Control & UI State Management
+
 ```javascript
-// Functional programming with array methods
-const total = cart.reduce((sum, item) => sum + item.price, 0)
-cart.forEach((item, index) => { /* render logic */ })
+// Modal functionality with backdrop control
+function completeOrder() {
+  modal.style.display = "block";
+  modalBackdrop.style.display = "block";
+}
+
+// Payment processing and success feedback
+payBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  modalBackdrop.style.display = "none";
+  orderContainer.style.display = "none";
+  successMessage.style.display = "block";
+  successText.textContent = `Thanks, ${nameInput.value}! Your order is on its way!`;
+});
 ```
 
 ### ES6 Modules & Data Management
+
 ```javascript
 // data.js - Clean data structure
 export const menuArray = [
-    {
-        name: "Pizza",
-        ingredients: ["pepperoni", "mushrom", "mozarella"],
-        price: 14,
-        imgUrl: "Assets/pizza.png"
-    }
-    // ... more items
-]
+  {
+    name: "Pizza",
+    ingredients: ["pepperoni", "mushrom", "mozarella"],
+    price: 14,
+    imgUrl: "Assets/pizza.png",
+  },
+  // ... more items
+];
 
 // index.js - Import and use
-import { menuArray } from './data.js'
+import { menuArray } from "./data.js";
 ```
 
 ## 🏗️ Project Structure
@@ -93,17 +129,20 @@ jimmys-diner/
 ## 🔧 Installation & Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/your-username/jimmys-diner.git
    cd jimmys-diner
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm start
    # or
@@ -122,17 +161,6 @@ This project was built to demonstrate proficiency in:
 - **Code Organization** - Modular, maintainable code structure
 - **Problem Solving** - Debugging and refactoring complex interactions
 
-## 🎯 Future Enhancements
-
-- [ ] **State Management Refactor** - Implement proper cart state management (currently being refactored)
-- [ ] **Local Storage Integration** - Cart persistence across browser sessions
-- [ ] **Order History Tracking** - User order history and favorites
-- [ ] **Multiple Payment Methods** - PayPal, Apple Pay integration
-- [ ] **Item Customization** - Size options, special instructions
-- [ ] **Admin Panel** - Menu management interface
-- [ ] **Unit Testing** - Jest/Vitest test implementation
-- [ ] **TypeScript Migration** - Type safety and better developer experience
-
 ## 🔍 Code Quality Features
 
 - **Error Handling** - Input validation and edge case management
@@ -140,28 +168,14 @@ This project was built to demonstrate proficiency in:
 - **Performance** - Efficient DOM updates and event delegation
 - **Maintainability** - Clean, documented code with consistent naming
 
-## 📱 Responsive Design
-
-The application is fully responsive and tested across:
-- Desktop browsers (Chrome, Firefox, Safari)
-- Tablet devices (iPad, Android tablets)
-- Mobile devices (iOS, Android)
-
 ## 🤝 Contributing
 
 While this is a personal learning project, I welcome feedback and suggestions! Feel free to:
+
 - Open issues for bugs or improvements
 - Submit pull requests for enhancements
 - Provide code review feedback
 
-## 📞 Contact
-
-**Your Name** - [your.email@example.com](mailto:your.email@example.com)
-
-- Portfolio: [your-portfolio.com](https://your-portfolio.com)
-- LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- GitHub: [@your-username](https://github.com/your-username)
-
 ---
 
-*This project demonstrates my journey in learning fundamental JavaScript concepts and building interactive web applications. It showcases my ability to write clean, maintainable code while implementing real-world functionality.*
+_This project demonstrates my journey in learning fundamental JavaScript concepts and building interactive web applications. It showcases my ability to write clean, maintainable code while implementing real-world functionality._
