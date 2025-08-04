@@ -37,7 +37,7 @@ main {
     gap: 45px;
 }
 header{
-    background-image: url('/Assets/ferks-guare-KEZdWfYD-ow-unsplash.jpg');
+    background-image: url('Assets/ferks-guare-KEZdWfYD-ow-unsplash.jpg');
     background-size: cover;
     background-position: center;
     color: white;
