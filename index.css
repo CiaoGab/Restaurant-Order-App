@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Smythe", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Typography */
+
+h1{
+    font-size: 39px;
+    line-height: 24px;
+}
+.item {
+    font-size: 28px;
+    line-height: 16.8px;
+}
+header p{
+    font-size: 22.42px;
+    line-height: 13.8px;
+}
+
+/* Main Layout */
+
+main {
+    padding: 46px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+header{
+    background-image: url('/Assets/ferks-guare-KEZdWfYD-ow-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 46px 56px;
+    width: 100%;
+    height: 167px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+hr {
+    width: 100%;
+    border: 1px solid black;
+}
+.main-container {
+    width: 600px;
+    height: 1161px;
+}
+.card {
+    display: flex;
+    align-items: top;
+    border-bottom: 1px solid #8B8B8B;
+    height: 140px;
+}
+.card img {
+    height: 89px;
+    width: 70px;
+    background-color: white;
+    margin-right: 31px;
+}
+.card button {
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border: 1px solid #DEDEDE;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.card-text{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.description {
+    font-size: 16px;
+    color: #8B8B8B;
+    width: 358px;
+    line-height: 24px;
+}
+.price {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+/* Order Elements */
+
+.order-container{
+    display: none;
+}
+.order-container h2{
+    text-align: center;
+    margin-bottom: 62px;
+    font-size: 28px;
+    line-height: 16.8px;
+}
+.line-item-container{
+    display: flex;
+    flex-direction: column;
+}
+.order-text{
+    display: flex;
+    justify-content: space-between;
+}
+.order-text h3{
+    display: flex;
+    gap: 13px;
+    font-size: 28px;
+    line-height: 16.8px;
+}
+.order-text aside {
+    font-size: 12px;
+    color: #BBBBBB;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+.line-item-elements {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.order-container hr{
+    margin-top: 31px;
+    margin-bottom: 14px;
+}
+.total-elements{
+    display: flex;
+    justify-content: space-between;
+}
+.order-container button{
+    margin-top: 53px;
+    width: 100%;
+    height: 60px;
+    color: white;
+    background-color: #16DB99;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Modal Styling */
+
+.modal-backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+.modal {
+    position: fixed;
+    background-color: white;
+    z-index: 1000;
+    display: none;
+}
+
+.Modal-container{
+    padding: 23px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    min-width: 524px;
+}
+
+.close{
+    position: absolute;
+    left: 92%;
+    top: 3%;
+    border-radius: 50px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    cursor: pointer;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 23.32px;
+}
+.input-container input {
+    padding: 16px 26px ;
+    color: #757575;
+    font-size: 20px;
+    line-height: 31px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.modal-title{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    line-height: 31px;
+}
+.pay-btn {
+    background-color: #16DB99;
+    color: white;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+/* Success Message */
+
+.success-message{
+    background-color: #ECFDF5;
+    color: #065F46;
+    padding: 50px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 16.8px;
+    display: none;
+}
